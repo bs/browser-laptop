@@ -82,6 +82,9 @@ const tabsReducer = (state, action) => {
     case appConstants.APP_LOAD_URL_IN_ACTIVE_TAB_REQUESTED:
       state = tabs.loadURLInActiveTab(state, action)
       break
+    case appConstants.APP_EMAIL_ACTIVE_TAB_REQUESTED:
+      state = tabs.emailActiveTab(state, action.get('windowId'))
+      break
     case appConstants.APP_ON_GO_BACK:
       state = tabs.goBack(state, action)
       break

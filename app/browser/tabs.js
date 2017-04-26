@@ -696,6 +696,14 @@ const api = {
     }
 
     return null
+  },
+
+  emailActiveTab: (state, windowId) => {
+    const tabValue = tabState.getActiveTabValue(state, windowId)
+    api.create({
+      url: `mailto:?subject=${tabValue.get('title') || ''}&body=${tabValue.get('url')}`
+    })
+    return state
   }
 }
 
